@@ -11,10 +11,8 @@ using PricingEngine.Extensions;
 namespace BillingApplication
 {
 
-    
     class Program
     {
-
         public static string Ask(string statement)
         {
             string input;
@@ -26,13 +24,10 @@ namespace BillingApplication
 
         static void Main(string[] args)
         {
-    
             while (Ask("Do you want to generate a Bill (Y/N)").ToUpper() == "Y")
             {
                 Proceed();
             }
-
-
         }
 
         private static void DisplayBillDetails(IBill bill)
@@ -65,7 +60,7 @@ namespace BillingApplication
             CustomerType customertype;
             DateTime registereddate;
             List<LineItem> cart = new List<LineItem>();
-            Customer customer;
+            ICustomer customer;
             IBill bill;
 
 
@@ -112,7 +107,7 @@ namespace BillingApplication
             }
 
             customer = CustomerFactory.GetCustomer(new Tuple<string, DateTime, CustomerType>(customername, registereddate, customertype));
-            bill = (Bill)BillFactory.GenerateBill(customer, cart);
+            bill = BillFactory.GenerateBill(customer, cart);
             DisplayBillDetails(bill);
 
 
