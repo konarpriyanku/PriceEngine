@@ -8,14 +8,17 @@ using System.Threading.Tasks;
 
 namespace PricingEngine.Extensions
 {
+  
    public static class Extensions
     {
+        //wrapper for for each  loop used with any ienumerable source 
         public static void ForEach<T>(this IEnumerable<T> source, Action<T> action)
         {
             foreach (T element in source)
                 action(element);
         }
 
+        // the discount to be applied on each lineitem based on the discount strategy
         public static void ApplyDiscount(this LineItem item, IDiscountStrategy discountstrategy )
         {
             if (item.ItemType != ItemType.Grocery)
@@ -29,6 +32,7 @@ namespace PricingEngine.Extensions
 
         }
 
+        // the discount to be applied on the final bill based on the total bill amount
         public static Decimal ApplyDiscount(this IBill bill)
         {
             var finalamount = bill.GetTotalAmountAfterDiscount();
@@ -41,6 +45,7 @@ namespace PricingEngine.Extensions
 
         }
 
+        // derive the discount based on customer type 
         public static IDiscountStrategy GetDiscountStrategy(this ICustomer customer)
         {
             IDiscountStrategy discountstrategy;

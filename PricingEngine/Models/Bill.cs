@@ -17,6 +17,7 @@ namespace PricingEngine.Models
         Decimal GetTotalAmountAfterDiscount();
         Decimal GetFinalPayAmount();
     }
+
     public class Price
     {
         IDiscountStrategy _discountStrategy;
@@ -30,19 +31,18 @@ namespace PricingEngine.Models
 
     }
 
-        public enum ItemType
+    public enum ItemType
     {
         Grocery,
         Others
     }
 
-   public class LineItem
+    public class LineItem
     {
         public string Name { get; set; }
         public ItemType ItemType { get; set; }
         public Price Price { get; set; }
     }
-
 
     public class Bill :IBill
     {

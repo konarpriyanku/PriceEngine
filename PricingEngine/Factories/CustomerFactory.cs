@@ -9,6 +9,7 @@ namespace PricingEngine.Factories
 {
    public static class CustomerFactory
     {
+        //Factory to create a Customer based on customer meta data 
         public static Customer GetCustomer(Tuple<string,DateTime,CustomerType> customermetadata)
         {
             return new Customer

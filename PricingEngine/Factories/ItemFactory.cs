@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace PricingEngine.Factories
 {
+    //factory to create a LineItem 
     public static class ItemFactory
     {
-       
-
+      
         public static LineItem CreateItem(Tuple<string,ItemType,decimal> itemmetadata)
         {
 

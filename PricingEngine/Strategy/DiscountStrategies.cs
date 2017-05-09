@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PricingEngine.Strategy
 {
+    //Strategy pattern  to solve the problem 
     public interface IDiscountStrategy
     {
         decimal ApplyDiscount(decimal price);
